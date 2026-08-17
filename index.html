@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="video-card">
+    <div class="video-container">
+      <video id="myVideo" poster="photo_2026-08-17_15-54-01.jpg">
+        <source src="IMG_3219.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <button class="play-btn" id="playBtn" aria-label="Play Video">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+      </button>
+    </div>
+    
+    <div class="video-info">
+      <h3>Ma Ei Phyo Happy Birthday!!</h3>
+      <p>感谢我们共同工作和创造的美好回忆。祝愿未来一切顺利。
+我想提醒你，由于你一直工作很累，所以一定要特别注意身体健康，规律饮食。
+</p>
+    </div>
+  </div>
+
+  <script>
+    const video = document.getElementById('myVideo');
+    const playBtn = document.getElementById('playBtn');
+
+    playBtn.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        video.controls = true;
+        playBtn.style.display = 'none';
+      }
+    });
+
+    video.addEventListener('pause', () => {
+      if (!video.seeking) {
+        playBtn.style.display = 'flex';
+        video.controls = false;
+      }
+    });
+  </script>
+</body>
+</html>
